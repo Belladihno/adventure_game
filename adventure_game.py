@@ -1,12 +1,14 @@
 import time
 import random
 
+
 def print_pause(message_to_print):
     print(message_to_print)
     time.sleep(2)
 
 def intro():
-    print_pause("Upon regaining consciousness, you discover yourself in a confined space.")
+    print_pause("Upon regaining consciousness, you " 
+                "discover yourself in a confined space.")
     print_pause("The air is heavy with tension and the distant sound of gunfire.")
     print_pause("You remember you're a trained agent on a mission deep in enemy territory.")
     print_pause("Your objective: Retrieve the classified documents and escape alive.")
@@ -167,9 +169,24 @@ def victory():
     print_pause("Back at headquarters, you're hailed as a hero.")
     print_pause("Congratulations! You've completed your mission!")
 
+def replay():
+    while True:
+        play_again = input("Would you like to play again? (yes/no) ").lower()
+        if play_again == "yes":
+            print_pause("Restarting the game...")
+            game()  
+        elif play_again == "no":
+            print_pause("Thanks for playing! Goodbye!")
+            break  
+        else:
+            print_pause("Invalid input. Please enter 'yes' or 'no'.")
+
+
+
 def game():
     intro()
     main_choice()
+    replay()
 
 if __name__ == "__main__":
-    game()
+    game() 
